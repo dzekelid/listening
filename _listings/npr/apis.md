@@ -8,8 +8,8 @@ image: http://kinlane-productions.s3.amazonaws.com/screen-capture-api/141-npr.jp
 x-kinRank: "9"
 x-alexaRank: "598"
 tags: Listening
-created: "2018-08-25"
-modified: "2018-08-25"
+created: "2018-08-27"
+modified: "2018-08-27"
 url: https://raw.githubusercontent.com/streamdata-gallery-topics/listening/master/_listings/npr/apis.md
 specificationVersion: "0.14"
 apis:
@@ -43,6 +43,20 @@ apis:
     url: https://raw.githubusercontent.com/streamdata-gallery-topics/listening/master/_listings/npr/listeningv2channels-get-postman.md
   - type: x-openapi-spec
     url: https://raw.githubusercontent.com/streamdata-gallery-topics/listening/master/_listings/npr/listeningv2channels-get-openapi.md
+- name: NPR One API Reference - Get recent ratings the logged-in user has submitted
+  x-api-slug: listeningv2history-get
+  description: This endpoint provides the list of recently-rated audio recommendations
+    that the logged-in user has consumed. Some rated recommendations are filtered,
+    such as sponsorship and donation.
+  image: http://kinlane-productions.s3.amazonaws.com/screen-capture-api/141-npr.jpg
+  humanURL: http://npr.org
+  baseURL: https://api.npr.org//
+  tags: News, Radio, Getting Started Example, Federal Government, Stack Network, Stack,
+    Mobile, Media, API Provider, Broadcasts, Profiles, Publish, General Data, Relative
+    Data, Service API, Pedestal, Relative StreamRank, Streams
+  properties:
+  - type: x-openapi-spec
+    url: https://raw.githubusercontent.com/streamdata-gallery-topics/listening/master/_listings/npr/listeningv2history-get-openapi.md
 - name: NPR One API Reference - Get a list of recommendations from a category of content
     from an organization
   x-api-slug: listeningv2organizationsorgidcategoriescategoryrecommendations-get
@@ -91,6 +105,25 @@ apis:
     url: https://raw.githubusercontent.com/streamdata-gallery-topics/listening/master/_listings/npr/listeningv2promorecommendations-get-postman.md
   - type: x-openapi-spec
     url: https://raw.githubusercontent.com/streamdata-gallery-topics/listening/master/_listings/npr/listeningv2promorecommendations-get-openapi.md
+- name: NPR One API Reference - Collect new ratings for media previously recommended
+    to the logged-in user
+  x-api-slug: listeningv2ratings-post
+  description: |-
+    This endpoint is the main mechanism for providing feedback from the user to NPR about the recommendations that are obtained from `GET /listening/v2/recommendations`.
+
+    A fully-populated link to this endpoint is returned with each individual recommendation and is located in the AudioItemDocument under the `links['recommendations']` object. The query parameters in this link should not be modified.
+    Be sure to copy and send back the entire ratings object (RatingData), as new fields may be added to it in the future.
+
+    This endpoint can return a blank JSON.doc or AudioItemDocument depending on the `recommend=true|false` parameter. The `recommend=true` flag allows this endpoint to both receive ratings and send back recommendations in the same call.
+  image: http://kinlane-productions.s3.amazonaws.com/screen-capture-api/141-npr.jpg
+  humanURL: http://npr.org
+  baseURL: https://api.npr.org//
+  tags: News, Radio, Getting Started Example, Federal Government, Stack Network, Stack,
+    Mobile, Media, API Provider, Broadcasts, Profiles, Publish, General Data, Relative
+    Data, Service API, Pedestal, Relative StreamRank, Streams
+  properties:
+  - type: x-openapi-spec
+    url: https://raw.githubusercontent.com/streamdata-gallery-topics/listening/master/_listings/npr/listeningv2ratings-post-openapi.md
 - name: NPR One API Reference - Get a list of media for the logged-in user from NPR's
     recommendation engine
   x-api-slug: listeningv2recommendations-get
